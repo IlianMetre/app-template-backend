@@ -5,7 +5,7 @@ process.env.NODE_ENV = 'test';
 process.env.LOG_LEVEL = 'error';
 process.env.DATABASE_URL =
   process.env.DATABASE_URL ??
-  'postgresql://testuser:testpassword@localhost:5433/testdb?schema=public';
+  'postgresql://appuser:apppassword@localhost:5432/appdb?schema=public';
 process.env.SESSION_SECRET =
   'test-session-secret-that-is-at-least-32-characters-long-for-testing';
 process.env.CSRF_HMAC_KEY =
