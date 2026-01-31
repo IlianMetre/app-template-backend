@@ -122,6 +122,10 @@ export async function logoutHandler(
 ): Promise<void> {
   const userId = request.currentUser?.id ?? null;
 
+  // Strip auth data before destroying. If the @fastify/session onSend hook
+  // races with destroy() and re-saves the session (rolling:true default),
+  // the persisted session will lack a userId → requireAuth returns 401.
+  request.session.set('userId', undefined);
   await request.session.destroy();
   reply.clearCookie(config.SESSION_NAME, { path: '/' });
   await auditLog(AuditAction.LOGOUT, userId, request);

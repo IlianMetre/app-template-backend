@@ -38,4 +38,6 @@ export async function cleanDatabase(): Promise<void> {
   await prisma.auditLog.deleteMany();
   await prisma.recoveryCode.deleteMany();
   await prisma.user.deleteMany();
+  // Clean session store (managed by connect-pg-simple, not Prisma)
+  await prisma.$executeRawUnsafe('DELETE FROM http_sessions').catch(() => {});
 }
