@@ -122,7 +122,8 @@ export async function logoutHandler(
 ): Promise<void> {
   const userId = request.currentUser?.id ?? null;
 
-  request.session.destroy();
+  await request.session.destroy();
+  reply.clearCookie(config.SESSION_NAME, { path: '/' });
   await auditLog(AuditAction.LOGOUT, userId, request);
 
   return reply.send({ message: 'Logged out successfully' });
