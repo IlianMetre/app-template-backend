@@ -10,8 +10,11 @@ dist/
 .env.*.local
 .env.production
 .env.staging
+cookies.txt
 # Keep .env.example committed
 !.env.example
+
+
 
 # IDE
 .vscode/
