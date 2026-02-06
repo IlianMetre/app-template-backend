@@ -57,7 +57,7 @@
     "@eslint/js": "^9.18.0",
     "@faker-js/faker": "^9.4.0",
     "@types/connect-pg-simple": "^7.0.3",
-    "@types/node": "^22.12.0",
+    "@types/node": "^25.2.1",
     "@types/qrcode": "^1.5.5",
     "eslint": "^9.18.0",
     "eslint-plugin-security": "^3.0.1",
